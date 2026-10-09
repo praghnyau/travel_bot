@@ -1,0 +1,57 @@
+REDBUS — REVIEWED PLATFORM ANSWERS
+
+TRAVEL BOOKING STEPS
+Step 1: Open the official redBus booking channel
+Open a web browser or the redBus app and go to https://www.redbus.in/.
+You can also book through the redBus website or app. Use the provider's official channel so the ticket and support route match the selected provider.
+
+Step 2: Enter the journey details
+Enter your departure city and destination city.
+Choose the travel date and passenger count, then search for available buses.
+
+Step 3: Compare available options
+Compare bus operator/service, departure and arrival times, journey duration, bus type, available seats, and exact boarding and drop points.
+Open service details to verify the pickup location and operator's conditions.
+
+Step 4: Select a service and review its rules
+Choose the service and seat if available.
+Before continuing, review the selected bus operator's cancellation, baggage, boarding, and rescheduling terms shown for this service. Check whether changes or cancellation are allowed and confirm the pickup/drop points.
+
+Step 5: Enter passenger details
+Enter passenger names and contact details as requested.
+Make sure ticket details match the ID required by the bus operator.
+Review names, dates, and contact details carefully before continuing.
+
+Step 6: Review the total and pay
+Check the operator/service, passenger details, seat, boarding/drop points, fare, fees, baggage terms, and selected add-ons.
+Pay using an option displayed by redBus. Wait for the booking result; do not refresh or submit payment again while it is processing.
+
+Step 7: Confirm and save the booking
+Confirm that payment resulted in a booking and save the redBus e-ticket and booking reference.
+If confirmation is unclear, check the provider's booking history before trying to pay again.
+
+Step 8: Check travel-day instructions
+Before departure, check the pickup point, reporting time, ticket format, and operator's travel instructions shown on the ticket.
+SOURCES: https://www.redbus.in/home ; https://www.redbus.in/ta/info/termscondition
+
+CANCELLATION PROCESS
+1. Open redBus My Bookings or the official cancellation page and retrieve the ticket with the requested booking details.
+2. Review the cancellation fee, cutoff, refund amount, and refund method shown for that ticket.
+3. Confirm cancellation only after checking the displayed terms; save the cancellation reference.
+4. Track the refund through redBus or the payment method shown for the booking.
+The bus operator's terms can affect the refund, cutoff, and change options; use the policy displayed for the actual ticket.
+SOURCE: https://www.redbus.in/cancellation ; https://www.redbus.in/ta/info/termscondition
+
+TRAVEL DOCUMENTATION REQUIREMENTS
+1. Keep the redBus e-ticket/booking details accessible; check whether the operator requires a particular ticket format.
+2. Carry the original photo ID required by the bus operator and make sure the passenger name matches the ticket.
+3. Check the ticket for pickup point, reporting time, and any route-specific boarding instructions.
+4. Contact redBus support or the operator through official channels if the ticket details conflict.
+SOURCE: https://www.redbus.in/home ; https://www.redbus.in/ta/info/termscondition
+
+COMMON REDBUS POLICIES
+1. redBus is a booking platform; operator rules can control cancellation, boarding, rescheduling, baggage, and service delivery.
+2. Review the ticket-specific cancellation policy and refund estimate before confirming a cancellation.
+3. Rescheduling is available only where the selected service/ticket offers it; check the fee and fare difference in the booking flow.
+4. Optional benefits such as Free Cancellation apply only when selected and when that booking meets the displayed conditions.
+SOURCES: https://www.redbus.in/ta/info/termscondition ; https://www.redbus.in/cancellation ; https://m.redbus.in/freeCancellation

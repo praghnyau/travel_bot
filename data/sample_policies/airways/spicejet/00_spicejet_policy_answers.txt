@@ -1,0 +1,59 @@
+SPICEJET — REVIEWED ANSWERS
+
+TRAVEL BOOKING STEPS
+Step 1: Open the official SpiceJet booking channel
+Open a web browser or the SpiceJet app and go to https://www.spicejet.com/.
+You can also book through SpiceJet's website or app, its Reservations service, an airport ticketing office, or an authorized travel agent. Use the provider's official channel so the ticket and support route match the selected provider.
+
+Step 2: Enter the journey details
+Enter your departure and destination airports/cities.
+Choose the travel date and passenger count, then search for available flights.
+
+Step 3: Compare available options
+Compare airline, flight number, departure and arrival times, stops, airports/terminals, cabin, fare family, baggage, and seat availability.
+Open the selected flight details to verify its route, timing, and fare conditions.
+
+Step 4: Select a service and review its rules
+Choose the flight and fare that fit your journey.
+Before continuing, review SpiceJet fare rules and route-specific baggage/add-on details. Check what baggage is included and whether changes or cancellation are allowed.
+
+Step 5: Enter passenger details
+Enter each passenger's name as it appears on their travel ID and provide the requested contact details.
+For international flights, verify passport, visa, transit, and destination entry requirements for your route and nationality before payment.
+Review names, dates, and contact details carefully before continuing.
+
+Step 6: Review the total and pay
+Check the selected flight segments, passenger details, fare, taxes/fees, baggage, seats, and optional add-ons.
+Pay using an option displayed by SpiceJet. Wait for the booking result; do not refresh or submit payment again while it is processing.
+
+Step 7: Confirm and save the booking
+Confirm that payment resulted in a booking and save SpiceJet booking reference (PNR) and itinerary.
+If confirmation is unclear, check the provider's booking history before trying to pay again.
+
+Step 8: Check travel-day instructions
+Before departure, check SpiceJet's current Web Check-in and airport instructions. International travellers departing India must also report to the airport counter for document verification.
+SOURCES: https://corporate.spicejet.com/flighttticketbbookingfaq.aspx ; https://corporate.spicejet.com/WebCheckinFaq.aspx
+
+CANCELLATION PROCESS
+1. Open Manage Booking on SpiceJet's website or app and retrieve the booking; reservation support and airport sales centres are also listed by SpiceJet.
+2. If an agent or another booking site issued the ticket, contact that seller about changes or refunds.
+3. Review the fare-specific cancellation/change terms and the current fee table before confirming; fees and fare differences can apply.
+4. Save the cancellation reference. Check refund status in Manage Booking/Transaction Summary or through the original seller.
+5. SpiceJet states that eligible refunds depend on the payment channel and ticket terms; do not assume every amount or add-on is refundable.
+SOURCE: https://corporate.spicejet.com/Tnc.aspx ; https://corporate.spicejet.com/PassengerRights.aspx
+
+TRAVEL DOCUMENTATION REQUIREMENTS
+1. Carry the booking details and valid photo ID accepted by SpiceJet for the journey.
+2. For international travel, carry a valid passport and any required visa or entry documents; confirm requirements with the destination and transit authorities.
+3. For international flights departing India, complete Web Check-in if available and still report to the airport counter for document verification.
+4. Make sure passenger names match the travel documents and keep originals accessible during airport checks.
+Requirements vary by route and nationality; confirm current rules before departure.
+SOURCES: https://corporate.spicejet.com/Tnc.aspx ; https://corporate.spicejet.com/WebCheckinFaq.aspx
+
+COMMON SPICEJET POLICIES
+1. The fare rules attached to the booking determine change and cancellation charges; check SpiceJet's current fee table for the ticket and travel date.
+2. For a third-party booking, contact the agent/platform that issued the ticket for ticket changes and refund handling.
+3. SpiceJet's web check-in and airport check-in cutoffs are time-sensitive; check the current flight instructions and arrive early.
+4. Baggage allowance and charges vary by route and service; use the allowance shown for the itinerary and current baggage page.
+5. A booking reference is not live flight status. Check SpiceJet's official flight-status channel for operational updates.
+SOURCES: https://corporate.spicejet.com/Tnc.aspx ; https://corporate.spicejet.com/Baggage.aspx ; https://corporate.spicejet.com/WebCheckinFaq.aspx

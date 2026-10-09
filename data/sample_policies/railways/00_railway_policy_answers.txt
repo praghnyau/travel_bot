@@ -1,0 +1,80 @@
+INDIAN RAILWAYS — REVIEWED STEP-BY-STEP ANSWERS
+
+TRAVEL BOOKING STEPS
+Step 1: Open the official IRCTC e-ticketing website
+Open a web browser and go to https://www.irctc.co.in/.
+Use IRCTC's official e-ticketing service or an authorized booking channel.
+
+Step 2: Sign in or create an account
+Enter your IRCTC username and password to sign in.
+If you do not have an account, use the registration option and complete the requested verification.
+
+Step 3: Enter the journey details
+On the travel-planning page, enter the From and To stations and select the correct stations from the available choices.
+Choose the travel date and any applicable quota, then submit the search.
+
+Step 4: Compare trains and availability
+Review the trains shown for the route, then open a train to check its route and timings.
+Select an available class to view its fare and seat status. Choose Book Now only after checking the details shown.
+
+Step 5: Enter passenger details
+Check the train and station names displayed on the reservation page.
+Enter each passenger's name, age, sex, and berth preference if requested. Review every entry before continuing.
+
+Step 6: Review and pay
+Check the passenger details, journey information, availability, and total fare including displayed service charges.
+Select a payment option and follow the bank/payment provider instructions. Wait for the result; don't repeat payment while it is processing.
+
+Step 7: Confirm and save the ticket
+After successful booking, note the PNR and open the Electronic Reservation Slip (ERS).
+Save or print the ERS. If confirmation is unclear after payment, check Booked Ticket History before attempting another booking.
+
+Step 8: Check before travelling
+Check each passenger's current PNR status and carry the ticket/ERS and accepted original photo ID required by current Railway rules.
+An e-ticket that remains fully waitlisted after chart preparation is not valid for travel under IRCTC guidance.
+SOURCES: https://contents.irctc.co.in/en/bookEticket.html ; https://contents.irctc.co.in/en/etktfaq.html
+
+CANCELLATION PROCESS
+Step 1: Open Booked Ticket History
+Sign in to the account used for the booking and open My Transactions/Booked Ticket History.
+
+Step 2: Select the ticket and passengers
+Choose the correct PNR/ticket. If partial cancellation is supported, select only the passengers who will not travel.
+
+Step 3: Review the refund shown
+Check the ticket status, class, quota, and cancellation timing. These details affect the applicable refund and any TDR requirements.
+
+Step 4: Confirm and keep the updated ticket
+Submit the cancellation and save the receipt. For a partial cancellation, save a fresh ERS for the passengers still travelling.
+
+Step 5: Track the refund
+Check the original payment route and follow current IRCTC instructions if an online TDR is required.
+SOURCES: https://contents.irctc.co.in/en/eticketCancel.html ; https://contents.irctc.co.in/en/etktfaq.html
+
+TRAVEL DOCUMENTATION REQUIREMENTS
+Step 1: Keep the valid ticket available
+Carry the ticket/ERS/SMS accepted for the booking and keep its details accessible during the journey.
+
+Step 2: Carry accepted original photo ID
+Check IRCTC's current accepted-ID list. Do not assume that every student ID, photocopy, or phone image is accepted.
+
+Step 3: Verify passenger status
+Check PNR status for every passenger before departure; a PNR alone does not confirm a berth.
+
+Step 4: Follow journey instructions
+Keep ticket and ID ready for inspection and follow instructions from railway staff.
+SOURCES: https://contents.irctc.co.in/en/etktfaq.html ; https://indianrailways.gov.in/
+
+COMMON RAIL TRAVEL POLICIES
+Step 1: Check each passenger's ticket status
+Follow the current Railway rules for confirmed, RAC, or waitlisted status. Fully waitlisted e-tickets remaining waitlisted after chart preparation are not valid for travel under IRCTC guidance.
+
+Step 2: Check the applicable fare and quota conditions
+Cancellation deductions and special-quota rules can depend on ticket status, class, quota, and timing. Check the current official rules for the booking.
+
+Step 3: Verify permitted changes
+Name transfers, boarding-point changes, concessions, and quota rules have restrictions. Confirm eligibility with IRCTC before relying on a change.
+
+Step 4: Check baggage conditions
+Verify the current class-based baggage allowance before carrying heavy or oversized items.
+SOURCES: https://contents.irctc.co.in/en/etktfaq.html ; https://indianrailways.gov.in/

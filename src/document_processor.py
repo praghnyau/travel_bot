@@ -10,6 +10,7 @@ class PolicyChunk:
     source: str
     index: int
     mode: str | None = None
+    provider: str | None = None
 
 
 def read_document(path: Path) -> str:
@@ -30,7 +31,7 @@ def _is_heading(line: str) -> bool:
     return bool(letters) and all(char.isupper() for char in letters) and not value.endswith((".", ";", ","))
 
 
-def split_text(text: str, source: str, chunk_size: int = 900, overlap: int = 120, mode: str | None = None) -> list[PolicyChunk]:
+def split_text(text: str, source: str, chunk_size: int = 900, overlap: int = 120, mode: str | None = None, provider: str | None = None) -> list[PolicyChunk]:
     lines = [re.sub(r"[ \t]+", " ", line).strip() for line in text.replace("\r\n", "\n").replace("\r", "\n").split("\n")]
     if not any(lines):
         return []
@@ -50,7 +51,8 @@ def split_text(text: str, source: str, chunk_size: int = 900, overlap: int = 120
         current = prefix
         for paragraph in paragraphs:
             if len(paragraph) > chunk_size:
-                pieces = re.split(r"(?<=[.!?])\s+|(?<=;)\s+", paragraph)
+                # A numbered-list marker like "1." is not the end of a sentence.
+                pieces = re.split(r"(?<!\d)(?<=[.!?])\s+|(?<=;)\s+", paragraph)
             else:
                 pieces = [paragraph]
             for piece in pieces:
@@ -59,7 +61,7 @@ def split_text(text: str, source: str, chunk_size: int = 900, overlap: int = 120
                     continue
                 candidate = f"{current}\n{piece}" if current.strip() else piece
                 if len(candidate) > chunk_size and current.strip():
-                    chunks.append(PolicyChunk(current.strip(), source, index, mode))
+                    chunks.append(PolicyChunk(current.strip(), source, index, mode, provider))
                     index += 1
                     tail = current[-overlap:] if overlap else ""
                     if tail and " " in tail:
@@ -69,7 +71,7 @@ def split_text(text: str, source: str, chunk_size: int = 900, overlap: int = 120
                 else:
                     current = candidate
         if current.strip():
-            chunks.append(PolicyChunk(current.strip(), source, index, mode))
+            chunks.append(PolicyChunk(current.strip(), source, index, mode, provider))
             index += 1
 
     for line in lines:
@@ -92,14 +94,29 @@ def load_policies(directory: Path) -> list[PolicyChunk]:
             path_parts = {part.lower() for part in path.relative_to(directory).parts[:-1]}
             stem = path.stem.lower()
             mode = None
+            provider = None
             if path_parts & {"air", "airway", "airways", "flight", "flights"} or stem in {"air", "airway", "airways", "flight", "flights"}:
                 mode = "airways"
             elif path_parts & {"rail", "railway", "railways", "train", "trains"} or stem in {"rail", "railway", "railways", "train", "trains"}:
                 mode = "railways"
             elif path_parts & {"bus", "buses"} or stem in {"bus", "buses"}:
                 mode = "bus"
+            if "spicejet" in path_parts:
+                provider = "spicejet"
+            elif "indigo" in path_parts:
+                provider = "indigo"
+            elif path_parts & {"airindia", "air_india"}:
+                provider = "air_india"
+            elif "redbus" in path_parts:
+                provider = "redbus"
+            elif "abhibus" in path_parts:
+                provider = "abhibus"
+            elif path_parts & {"makemytrip", "mmt"}:
+                provider = "makemytrip"
+            elif "apsrtc" in path_parts:
+                provider = "apsrtc"
             try:
-                chunks.extend(split_text(read_document(path), path.name, mode=mode))
+                chunks.extend(split_text(read_document(path), path.name, mode=mode, provider=provider))
             except (OSError, ValueError):
                 continue
     return chunks

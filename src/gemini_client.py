@@ -3,7 +3,7 @@ import requests
 
 
 class GeminiClient:
-    def __init__(self, api_key: str, model: str = "gemini-3.5-flash", timeout: int = 30):
+    def __init__(self, api_key: str, model: str = "gemini-3.6-flash", timeout: int = 30):
         if not api_key:
             raise ValueError("A Gemini API key is required.")
         self.api_key, self.model, self.timeout = api_key, model, timeout
@@ -16,7 +16,7 @@ class GeminiClient:
             headers={"x-goog-api-key": self.api_key},
             json={"systemInstruction": {"parts": [{"text": system_prompt}]},
                  "contents": [{"parts": [{"text": f"Policy excerpts:\n{context}\n\nEmployee question: {question}"}]}],
-                 "generationConfig": {"temperature": 0.2, "maxOutputTokens": 700}},
+                 "generationConfig": {"temperature": 0.1, "maxOutputTokens": 700}},
             timeout=self.timeout,
         )
         response.raise_for_status()
