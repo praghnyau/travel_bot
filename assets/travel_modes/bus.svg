@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 420" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 75 1500 375" fill="none">
   <defs>
     <linearGradient id="sky" x1="750" y1="0" x2="750" y2="420" gradientUnits="userSpaceOnUse"><stop stop-color="#C9F2FF"/><stop offset=".6" stop-color="#F0FBEA"/><stop offset="1" stop-color="#A7D99B"/></linearGradient>
     <linearGradient id="road" x1="750" y1="275" x2="750" y2="420" gradientUnits="userSpaceOnUse"><stop stop-color="#899B88"/><stop offset="1" stop-color="#5E7768"/></linearGradient>

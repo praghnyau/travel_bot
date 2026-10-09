@@ -1,6 +1,5 @@
 """Streamlit front end for the TripWise AI travel policy assistant."""
 from pathlib import Path
-import base64
 import hashlib
 import importlib
 from urllib.parse import urlparse
@@ -134,32 +133,53 @@ def render_mode_art(mode: str) -> None:
     st.image(asset.read_text(encoding="utf-8"), width="stretch")
 
 
-def apply_mode_background(mode: str) -> None:
-    """Set a gentle scene behind the app while preserving foreground contrast."""
-    asset_name = {"airways": "airways.svg", "railways": "train.svg", "bus": "bus.svg"}.get(mode)
-    if not asset_name:
+def apply_mode_theme(mode: str) -> None:
+    """Tint the page to match the selected mode without obscuring its content."""
+    palettes = {
+        "airways": {
+            "page": ("#F8FCFF", "#EFF8FE", "#E8F6FF"),
+            "sidebar": ("#EAF7FF", "#F8FAFC"),
+            "hero": ("#FFFFFF", "#E0F2FE"),
+            "accent": "#0284C7", "border": "#BAE6FD",
+            "art_position": "56%",
+        },
+        "railways": {
+            "page": ("#FBFEFB", "#F1F8F1", "#E9F5EB"),
+            "sidebar": ("#EAF5EB", "#F8FBF8"),
+            "hero": ("#FFFFFF", "#E5F4E7"),
+            "accent": "#25845A", "border": "#B9DEC2",
+            "art_position": "bottom",
+        },
+        "bus": {
+            "page": ("#FAFEFC", "#EEF8F3", "#E5F4EC"),
+            "sidebar": ("#E7F5ED", "#F8FBF9"),
+            "hero": ("#FFFFFF", "#E1F3E9"),
+            "accent": "#187C67", "border": "#B6DDCF",
+            "art_position": "bottom",
+        },
+    }
+    colors = palettes.get(mode)
+    if not colors:
         return
-    asset = Path(__file__).parent / "assets" / "travel_modes" / asset_name
-    if not asset.is_file():
-        return
-    artwork = base64.b64encode(asset.read_bytes()).decode("ascii")
-    veil = {
-        "airways": "rgba(240, 249, 255, .78), rgba(248, 250, 252, .84)",
-        "railways": "rgba(240, 253, 244, .80), rgba(248, 250, 252, .86)",
-        "bus": "rgba(236, 253, 245, .80), rgba(248, 250, 252, .86)",
-    }[mode]
+    p1, p2, p3 = colors["page"]
+    side1, side2 = colors["sidebar"]
+    hero1, hero2 = colors["hero"]
     st.markdown(
         f"""<style>
         .stApp, [data-testid="stAppViewContainer"] {{
-          background-image: linear-gradient(145deg, {veil}), url("data:image/svg+xml;base64,{artwork}") !important;
-          background-size: cover, cover !important;
-          background-position: center, center !important;
-          background-repeat: no-repeat, no-repeat !important;
-          background-attachment: fixed, fixed !important;
+          background: linear-gradient(145deg, {p1} 0%, {p2} 58%, {p3} 100%) !important;
         }}
-        [data-theme="dark"] .stApp, [data-theme="dark"] [data-testid="stAppViewContainer"] {{
-          background-image: linear-gradient(145deg, rgba(15, 23, 42, .91), rgba(15, 23, 42, .88)), url("data:image/svg+xml;base64,{artwork}") !important;
-        }}
+        [data-testid="stSidebar"] {{ background: linear-gradient(180deg, {side1}, {side2} 82%) !important; }}
+        .hero {{ border-color: {colors['border']} !important; background: linear-gradient(118deg, {hero1} 8%, {hero2} 100%) !important; }}
+        .eyebrow, .section-kicker {{ color: {colors['accent']} !important; }}
+        .trust-pill {{ border-color: {colors['border']} !important; color: {colors['accent']} !important; }}
+        .stButton > button:hover {{ border-color: {colors['accent']} !important; }}
+        [data-testid="stImage"] {{ border-color: {colors['border']} !important; }}
+        [data-testid="stImage"] img {{ object-position: center {colors['art_position']} !important; }}
+        [data-theme="dark"] .hero {{ border-color: #2A4863 !important; background: linear-gradient(118deg, #17243A, #113148) !important; }}
+        [data-theme="dark"] .trust-pill {{ border-color: #2A6487 !important; color: #BAE6FD !important; }}
+        [data-theme="dark"] [data-testid="stImage"] {{ border-color: #2A4863 !important; }}
+        @media (max-width: 720px) {{ [data-testid="stImage"] {{ height: 135px; }} }}
         </style>""",
         unsafe_allow_html=True,
     )
@@ -188,15 +208,15 @@ st.markdown(
     h1, h2, h3, [data-testid="stMarkdownContainer"] h1,
     [data-testid="stMarkdownContainer"] h2, [data-testid="stMarkdownContainer"] h3 { color: #0F172A !important; letter-spacing: -.035em; }
     .brand-mark { width: 44px; height: 44px; border-radius: 15px; display: inline-flex; align-items: center; justify-content: center; background: linear-gradient(135deg,#38BDF8,#7DD3FC); color: #0F172A; font-size: 23px; box-shadow: 0 8px 22px rgba(56,189,248,.24); }
-    .hero { position: relative; overflow: hidden; padding: 2rem 2.2rem; margin: .5rem 0 1.35rem; border: 1px solid #BAE6FD; border-radius: 26px; background: linear-gradient(118deg,#FFFFFF 8%,#E0F2FE 100%); box-shadow: 0 14px 32px rgba(15,23,42,.07); }
+    .hero { position: relative; overflow: hidden; padding: 1.2rem 1.65rem; margin: .25rem 0 .8rem; border: 1px solid #BAE6FD; border-radius: 26px; background: linear-gradient(118deg,#FFFFFF 8%,#E0F2FE 100%); box-shadow: 0 14px 32px rgba(15,23,42,.07); }
     .hero:after { content: ""; position: absolute; right: -32px; top: -90px; width: 290px; height: 290px; border-radius: 50%; background: radial-gradient(circle,rgba(56,189,248,.22),rgba(56,189,248,0) 70%); }
     .eyebrow { color: #0284C7; font-weight: 700; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; }
-    .hero h1 { color: #0F172A !important; margin: .45rem 0 .35rem; font-size: clamp(2rem,4vw,3.15rem); line-height: 1.08; }
+    .hero h1 { color: #0F172A !important; margin: .35rem 0 .3rem; font-size: clamp(1.85rem,3.2vw,2.65rem); line-height: 1.08; }
     .hero p { max-width: 650px; margin: 0; color: #334155 !important; font-size: 1.06rem; }
-    .trust-pill { display: inline-block; margin-top: 1.15rem; padding: .42rem .75rem; border: 1px solid #BAE6FD; border-radius: 99px; background: #FFFFFF; color: #075985 !important; font-size: .82rem; font-weight: 600; }
-    [data-testid="stImage"] { height: clamp(125px, 19vw, 210px); overflow: hidden; margin: 0 0 1.2rem; border: 1px solid rgba(186,230,253,.9); border-radius: 23px; background: #EAF7FF; box-shadow: 0 10px 26px rgba(15,23,42,.07); }
+    .trust-pill { display: inline-block; margin-top: .75rem; padding: .38rem .72rem; border: 1px solid #BAE6FD; border-radius: 99px; background: #FFFFFF; color: #075985 !important; font-size: .82rem; font-weight: 600; }
+    [data-testid="stImage"] { height: clamp(135px, 16vw, 185px); overflow: hidden; margin: 0 0 .75rem; border: 1px solid rgba(186,230,253,.9); border-radius: 23px; background: #EAF7FF; box-shadow: 0 10px 26px rgba(15,23,42,.07); }
     [data-testid="stImage"] img { display:block; width:100%; height:100%; object-fit:cover; object-position:center 56%; }
-    [data-testid="stChatMessage"] { border: 1px solid #D7EAF6; border-radius: 20px; padding: .8rem 1rem; margin: .7rem 0; background: #FFFFFF; box-shadow: 0 7px 24px rgba(15,23,42,.055); color: #0F172A !important; }
+    [data-testid="stChatMessage"] { scroll-margin-top: 1rem; border: 1px solid #D7EAF6; border-radius: 20px; padding: .8rem 1rem; margin: .7rem 0; background: #FFFFFF; box-shadow: 0 7px 24px rgba(15,23,42,.055); color: #0F172A !important; }
     [data-testid="stChatMessage"] [data-testid="stMarkdownContainer"], [data-testid="stChatMessage"] p,
     [data-testid="stChatMessage"] li { color: #0F172A !important; }
     [data-testid="stChatMessage"]:has([data-testid="chatAvatarIcon-user"]) { background: #EAF7FF; border-color: #BAE6FD; }
@@ -222,8 +242,6 @@ st.markdown(
     [data-testid="stExpander"] { border-color: #DDEBF5; border-radius: 16px; background: rgba(255,255,255,.68); }
     .section-kicker { margin: .25rem 0 .2rem; color: #0369A1 !important; font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .11em; }
     .helper-copy { color: #475569 !important; margin-top: -.3rem; }
-    .context-strip { display:flex; flex-wrap:wrap; gap:.55rem; margin:-.15rem 0 1.4rem; }
-    .context-chip { display:inline-flex; align-items:center; gap:.4rem; border:1px solid #D7EAF6; border-radius:999px; padding:.42rem .75rem; background:rgba(255,255,255,.82); color:#334155; font-size:.82rem; font-weight:600; }
     .welcome-title { margin:1.4rem 0 .2rem; color:#0F172A; font-size:1.12rem; font-weight:750; }
     .welcome-copy { margin:0 0 .8rem; color:#64748B; font-size:.91rem; }
     .stButton > button[kind="secondary"] { text-align:left; }
@@ -242,7 +260,6 @@ st.markdown(
     [data-theme="dark"] [data-testid="stMarkdownContainer"] h3 { color: #F8FAFC !important; }
     [data-theme="dark"] [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p,
     [data-theme="dark"] .helper-copy { color: #B6C5D8 !important; }
-    [data-theme="dark"] .context-chip { background:#17243A; border-color:#2A4863; color:#D7E5F3; }
     [data-theme="dark"] .welcome-title { color:#F8FAFC; }
     [data-theme="dark"] .welcome-copy { color:#B6C5D8; }
     [data-theme="dark"] .hero { border-color: #2A4863; background: linear-gradient(118deg,#17243A,#113148); }
@@ -268,7 +285,8 @@ st.markdown(
     [data-theme="dark"] .stButton > button p, [data-theme="dark"] .stButton > button span { color: #F1F5F9 !important; }
     [data-theme="dark"] [data-testid="stMetric"], [data-theme="dark"] [data-testid="stExpander"] { border-color: #2A3B53; background: rgba(23,36,58,.75); }
     @media (max-width: 720px) {
-      .hero { padding: 1.45rem 1.25rem; border-radius: 22px; }
+      .hero { padding: 1.1rem 1.15rem; border-radius: 22px; }
+      [data-testid="stImage"] { height: 135px; }
       .hero:after { right: -130px; }
       [data-testid="stMainBlockContainer"] { padding-top: 1rem; }
     }
@@ -323,7 +341,8 @@ with st.sidebar:
 
     # Keep chat history scoped to the selected mode and airline.
     active_scope = (mode_key, provider_key)
-    if st.session_state.get("active_policy_scope") != active_scope:
+    scope_changed = st.session_state.get("active_policy_scope") != active_scope
+    if scope_changed:
         st.session_state.messages = []
         st.session_state.active_policy_scope = active_scope
 
@@ -350,7 +369,7 @@ with st.sidebar:
             "It does not book, cancel, or check live ticket and refund status."
         )
 
-apply_mode_background(mode_key)
+apply_mode_theme(mode_key)
 
 hero_title = {
     "Ask anything": "Travel, made clearer.",
@@ -360,8 +379,8 @@ hero_title = {
     "FAQs": "Quick answers for smoother travel.",
 }[nav_item]
 if mode_key in {"airways", "bus"} and not provider_key:
-    category = "airline" if mode_key == "airways" else "bus platform or operator"
-    hero_copy = f"Choose a {category} to see its own booking, baggage, and cancellation guidance."
+    category = "an airline" if mode_key == "airways" else "a bus platform or operator"
+    hero_copy = f"Choose {category} to see its own booking, baggage, and cancellation guidance."
 elif provider_label:
     hero_copy = f"Clear, practical {provider_label} guidance, grounded only in this provider's policy library."
 else:
@@ -375,21 +394,11 @@ st.markdown(
 )
 render_mode_art(mode_key)
 
-library_label = provider_label if provider_key else mode_label
-mode_icon = {"airways": "✈️", "bus": "🚌", "railways": "🚆"}[mode_key]
-st.markdown(
-    '<div class="context-strip">'
-    f'<span class="context-chip">{mode_icon} {library_label}</span>'
-    f'<span class="context-chip">📚 {scoped_count:,} policy passages</span>'
-    '<span class="context-chip">🔒 Answers stay within this policy library</span>'
-    '</div>',
-    unsafe_allow_html=True,
-)
-
 if mode_key in {"airways", "bus"} and not provider_key:
     choices = "SpiceJet, IndiGo, or Air India" if mode_key == "airways" else "redBus, AbhiBus, MakeMyTrip, or APSRTC Official Portal"
+    article = "an" if mode_key == "airways" else "a"
     label = "airline-specific" if mode_key == "airways" else "platform-specific"
-    st.info(f"Choose {choices} in the sidebar to start a {label} conversation.", icon=":material/flight:")
+    st.info(f"Choose {choices} in the sidebar to start {article} {label} conversation.", icon=":material/flight:")
 elif not chunk_count:
     st.info("The policy library is empty. Add approved policy documents to continue.", icon=":material/library_books:")
 else:
@@ -469,7 +478,7 @@ else:
             requestAnimationFrame(() => setTimeout(() => {
               const messages = document.querySelectorAll('[data-testid="stChatMessage"]');
               const latestAnswer = messages[messages.length - 1];
-              if (latestAnswer) latestAnswer.scrollIntoView({behavior: 'smooth', block: 'end'});
+              if (latestAnswer) latestAnswer.scrollIntoView({behavior: 'smooth', block: 'start'});
             }, 80));
             </script>
             """,
