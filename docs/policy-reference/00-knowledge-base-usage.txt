@@ -1,0 +1,31 @@
+TRAVEL BOOKING & POLICY EXPLAINER CHATBOT — KNOWLEDGE BASE
+Prepared: 9 October 2026
+Scope: Bus/coach, Indian Railways/IRCTC, domestic flights, international flights.
+
+PURPOSE
+These text files provide explanatory knowledge for a chatbot. The chatbot explains procedures and policies only. It must NOT book, cancel, reschedule, collect payment, change tickets, or claim to check live booking/refund status.
+
+IMPORTANT ACCURACY WARNING
+There is no single cancellation fee, refund timeline, baggage allowance, ID list, check-in deadline, or policy that applies to every travel operator. Rules depend on operator, booking channel, route, ticket/fare/class, travel date, passenger status, and current policy. This database intentionally avoids inventing exact numbers where they change. For ticket-specific questions, the ticket's terms and the current official provider policy take priority.
+
+HOW TO RETRIEVE KNOWLEDGE
+1. Identify the transport type: bus, train, or flight.
+2. Identify provider/platform if given (e.g., APSRTC, redBus, IRCTC, airline name).
+3. Retrieve the matching transport file and the relevant topic file (booking, cancellation, documents, baggage, disruption).
+4. If a key detail changes the answer, ask a short follow-up: provider, route, date, domestic/international, fare/class, or ticket status.
+5. For live PNR, live availability, live flight status, or actual refund status, state that the knowledge base cannot access live records and direct the user to the official provider.
+
+SECURITY
+Never request passwords, OTPs, card PIN/CVV, full card numbers, or full passport/ID numbers. Users should not post booking references publicly. Do not claim an action was completed.
+
+SUGGESTED ANSWER STRUCTURE
+- Direct answer
+- Numbered procedure
+- Required documents/details
+- Relevant restrictions/deadlines (only if verified)
+- Official source
+- Clarifying question, if necessary
+
+SUGGESTED RAG METADATA
+transport_type, provider, topic, country, source_url, reviewed_on, applicability, confidence.
+Suggested chunks: 400–900 words, 60–120 word overlap.

@@ -1,0 +1,38 @@
+INDIAN RAILWAYS / IRCTC — CANCELLATION, REFUNDS AND TDR
+
+OFFICIAL REFERENCES
+https://contents.irctc.co.in/en/eticketCancel.html
+https://contents.irctc.co.in/en/etktfaq.html
+
+E-TICKET CANCELLATION
+1. Sign in to the account used to book.
+2. Open Booked Ticket History/My Transactions (labels may change).
+3. Select the ticket/PNR.
+4. Select passenger(s) to cancel if partial cancellation is supported.
+5. Review the cancellation/refund details shown.
+6. Confirm cancellation.
+7. Save cancellation receipt and updated ticket for remaining passengers.
+8. Track the refund through the original payment channel.
+
+CHARGES
+Deductions depend on status, class, time before departure, quota and current rules. Do not quote old numeric tables as current; check the official cancellation page and booking-specific terms.
+
+AFTER CHART PREPARATION / TDR
+Normal e-ticket cancellation is generally available online until chart preparation. Certain cases may require an online TDR (Ticket Deposit Receipt/claim) and Railway review. The reason and filing deadline depend on current rules. Filing a TDR does not guarantee a refund.
+General steps:
+1. Sign in to the official account and locate the booking.
+2. Choose the TDR/refund-claim option if available.
+3. Select the accurate reason.
+4. Submit within the applicable deadline.
+5. Save the claim reference and track the decision.
+
+COMMON CASES
+- Confirmed tickets: deduction depends on cancellation timing, class and current rules.
+- RAC/waitlisted tickets: separate rules/cutoffs can apply.
+- Fully waitlisted e-ticket after chart preparation: IRCTC guidance says it is not valid for travel; refund follows applicable rules.
+- Confirmed Tatkal e-ticket: published rules generally restrict refunds on cancellation, subject to current rules/exceptions. Verify before answering.
+- Train cancelled, delayed, diverted or passenger did not travel: use the specific current rule and correct claim reason.
+- Counter paper tickets: procedures differ from online e-tickets.
+
+REFUND TIMING
+Eligibility, claim approval, refund initiation and money reaching the account are different stages. Timing depends on provider/payment method. Never guarantee a fixed credit date.

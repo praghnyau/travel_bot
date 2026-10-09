@@ -1,0 +1,27 @@
+TRAVEL GLOSSARY
+
+Aggregator/platform: Site/app selling or organizing bookings for operators.
+Boarding point: Place where a bus passenger joins, or the station/airport where a journey starts.
+Boarding pass: Airline document/credential used to board a flight.
+Booking reference: Code used to retrieve a reservation.
+Cabin baggage: Luggage carried into the aircraft cabin within limits.
+Cancellation charge: Amount deducted when a ticket is cancelled.
+Chart preparation: Railway process for finalizing reservation charts.
+Checked baggage: Airline luggage handed to the carrier for the aircraft hold.
+CNF: Confirmed railway reservation status.
+Convenience/platform fee: Booking-platform charge; refundability varies.
+E-ticket: Electronic ticket/booking record.
+ERS: Electronic Reservation Slip for an IRCTC e-ticket.
+Fare difference: Price difference when changing service/date.
+Flight segment: One leg of a flight itinerary.
+Gate closure: Time after which boarding may not be accepted.
+M-ticket: Mobile ticket, where accepted.
+No-show: Passenger does not board by required time.
+Operating carrier: Airline actually operating a flight.
+PNR: Passenger Name Record; booking reference.
+RAC: Reservation Against Cancellation; railway status defined by Railway rules.
+Refund: Money returned if eligible.
+Reschedule: Change ticket to another date/service.
+TDR: Ticket Deposit Receipt/claim used in specified Railway refund cases.
+Transit visa: Visa that may be required while passing through a country.
+WL: Waitlisted railway status.

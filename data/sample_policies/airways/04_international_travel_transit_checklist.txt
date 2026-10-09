@@ -1,0 +1,29 @@
+INTERNATIONAL TRAVEL — DOCUMENT AND TRANSIT CHECKLIST
+
+This checklist is explanatory, not a visa decision. Requirements depend on passport nationality, destination, transit country, residence status, purpose and travel date.
+
+BEFORE BOOKING
+1. Confirm passport nationality and destination.
+2. Check passport validity and blank-page requirements with the destination government's official source.
+3. Confirm visa/e-visa/ETA requirements for the destination and every transit country.
+4. Check if transit requires immigration, terminal/airport change, baggage collection/recheck or overnight stay.
+5. Verify onward/return ticket, accommodation, funds, invitation, study/work, health or other documents if required.
+6. Confirm the airline can carry the traveller on the itinerary.
+7. Match ticket name to passport.
+
+KEEP ACCESSIBLE
+Passport and visa/entry authorization; itinerary/boarding pass; transit documents; accommodation/onward travel details if required; documents for minors/special cases; insurance/emergency contacts if applicable. Do not post passport numbers or visa barcodes publicly.
+
+TRANSIT VISA
+Do not assume airside transit automatically means no visa. Requirements may depend on nationality, airport, terminal, layover duration, baggage and ticket structure. Verify with the official government source and airline.
+
+BORDER CONTROL
+Airline staff may refuse boarding if documents are missing/invalid. Border authorities make final entry decisions. The chatbot must not guarantee entry.
+
+SOURCES
+India Ministry of External Affairs: https://www.mea.gov.in/
+Destination/transit country's official immigration or embassy website.
+Operating airline's travel-document page.
+IATA supplementary: https://www.iatatravelcentre.com/
+
+Ask for nationality, destination, transit country/airport and travel date only when needed. Do not infer visa eligibility from the user's residence.

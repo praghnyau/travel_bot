@@ -1,0 +1,75 @@
+TRAVEL CHATBOT — FAQ, EDGE CASES AND FALLBACKS
+
+BOOKING
+Q: How do I book?
+A: Choose official operator/platform, enter route/date/passengers, compare services, read fare/cancellation terms, enter details, pay and save confirmed ticket/reference.
+Q: Payment succeeded but no ticket arrived?
+A: Check booking history/SMS/email first. Do not pay again immediately. Save transaction evidence and contact official support to verify ticket issuance.
+Q: Can I book for another person?
+A: Often yes, but the named traveller must meet ticket and ID requirements; check provider rules.
+
+CANCELLATION
+Q: How much refund will I get?
+A: It depends on operator, ticket/fare, timing, route, booking channel and non-refundable charges. Check the estimate/policy for that ticket.
+Q: How long does a refund take?
+A: It depends on provider/payment method. Static knowledge cannot see live account records.
+Q: Cancelled but money not received?
+A: Save cancellation reference, verify whether refund was initiated, check original payment method, then contact official support. Never share OTP/PIN/card details.
+Q: Can I cancel one passenger?
+A: Sometimes; use partial cancellation if supported and verify the updated ticket.
+Q: Operator cancelled the trip—will I get a full refund?
+A: It depends on mode, provider, reason and applicable rules. Check official notice/options.
+
+MISSED DEPARTURE
+Q: Missed bus/train/flight—refund?
+A: Ticket rules and circumstances determine eligibility. Contact provider promptly. Railway has specific rules and deadlines; bus/airline policies differ.
+Q: Missed connection because first service was delayed?
+A: Check whether both legs are on one ticket. Separate bookings may not be protected.
+
+DOCUMENTS
+Q: What ID do I need?
+A: It depends on transport type, operator, route and domestic/international status.
+Q: Is a photo of ID enough?
+A: Do not assume; check current accepted original/digital ID rules.
+Q: What documents are needed internationally?
+A: Passport plus required visa/entry/transit authorization and route-specific documents; verify official government sources.
+
+BAGGAGE
+Q: How much luggage can I carry?
+A: Ask transport type, provider, fare/class and route. Bus, rail and airline limits differ.
+Q: Can I carry a power bank/medicine/sports item?
+A: Check the current official safety/baggage list; never hide restricted items.
+
+CHANGES
+Q: Can I change date?
+A: Only if ticket/provider allows; fees and fare difference may apply.
+Q: Can I change passenger name?
+A: Name correction and ticket transfer differ; most tickets are not freely transferable.
+
+RAILWAY
+Q: What is PNR?
+A: Passenger Name Record, a reference used to check booking status.
+Q: What are CNF/RAC/WL?
+A: Confirmed; Reservation Against Cancellation; waitlisted. Check final status after chart preparation.
+Q: Can I travel on a fully waitlisted e-ticket after chart preparation?
+A: IRCTC guidance says it is not valid for travel; verify current official instructions.
+
+BUS
+Q: Is a printout necessary?
+A: Many services accept mobile tickets; follow ticket/operator instructions.
+Q: Can pickup point be changed?
+A: Only if operator permits it; contact official support before departure.
+
+FLIGHT
+Q: Does a ticket mean I have checked in?
+A: No. Itinerary/ticket and boarding pass differ; complete check-in and meet deadlines.
+Q: What if baggage is missing/damaged?
+A: Report to airline baggage staff promptly, keep tags/reference and follow claim deadlines.
+
+FALLBACK
+If the exact rule is missing, ambiguous or may have changed:
+1. Say that the rule cannot be confirmed from the available knowledge.
+2. Do not guess a fee, percentage, deadline, baggage weight, document acceptance or compensation amount.
+3. Provide the relevant official source.
+4. Ask only for non-sensitive details needed to narrow the rule.
+5. For live status/refund/availability, direct the user to the official provider.

@@ -1,0 +1,27 @@
+REDBUS — PLATFORM-SPECIFIC KNOWLEDGE
+
+OFFICIAL PAGES
+Cancellation: https://www.redbus.in/cancellation
+FAQ: https://www.redbus.in/home
+Terms: https://www.redbus.in/ta/info/termscondition
+
+ROLE
+redBus is a booking platform; the actual bus operator's rules may determine cancellation fee, deadline, boarding arrangements and rescheduling eligibility.
+
+CANCELLATION
+General flow: open the cancellation page/app; enter the ticket number and registered contact details as requested; review the policy/refund shown for that ticket; confirm; save the reference. Some cases may require support rather than self-service.
+
+REFUNDS
+Fee, cutoff, refund method and timing can vary. Do not assume every redBus service has the same refund percentage. The policy displayed for the ticket is the most relevant booking-specific reference.
+
+RESCHEDULING
+Only some services offer rescheduling. Check the actual ticket/platform flow, charges and fare difference before confirming.
+
+BOARDING
+Follow the ticket for mobile/e-ticket acceptance, pickup point, reporting time and ID. Contact the operator/platform if the pickup point is unclear.
+
+MISSED BUS
+Refund eligibility depends on the ticket policy and circumstances. Do not promise a refund if the passenger arrives late.
+
+CHATBOT RULE
+For exact charges, direct the user to the cancellation estimate displayed for their ticket and the official cancellation page. Never ask for OTP, password or card security details.

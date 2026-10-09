@@ -1,0 +1,31 @@
+INDIAN RAILWAYS / IRCTC — BOOKING, PNR AND STATUS
+
+OFFICIAL SOURCES
+E-ticket FAQ: https://contents.irctc.co.in/en/etktfaq.html
+Booking guide: https://contents.irctc.co.in/en/bookEticket.html
+Cancellation: https://contents.irctc.co.in/en/eticketCancel.html
+Indian Railways: https://indianrailways.gov.in/
+
+BOOKING STEPS
+1. Sign in to official IRCTC e-ticketing or use an authorized booking channel.
+2. Search source/destination stations, travel date, class and quota.
+3. Compare train, departure/arrival time, duration, class, quota, fare and availability.
+4. Enter passenger details accurately.
+5. Review booking summary and contact details.
+6. Pay using a supported method.
+7. Save PNR, ticket/ERS, transaction reference and confirmation.
+8. Check final status before travelling.
+
+PNR AND STATUS
+PNR means Passenger Name Record and is a booking reference; it does not itself guarantee a confirmed berth.
+CNF = confirmed. RAC = Reservation Against Cancellation, with travel arrangements governed by Railway rules. WL = waitlisted. Different passengers on the same PNR can have different statuses. Chart preparation finalizes reservation charts; timing can vary.
+IRCTC guidance says a fully waitlisted e-ticket that remains waitlisted after chart preparation is not valid for travel.
+
+SPECIAL QUOTAS
+Tatkal, Premium Tatkal, concessions and other quotas can have distinct eligibility, booking timing and cancellation rules. Do not apply ordinary-quota rules automatically.
+
+TRAVEL-DAY CHECKLIST
+Verify train/date, boarding station, coach/class, PNR and passenger-by-passenger status. Check official service/platform updates. Carry accepted original ID and valid ticket/ERS/SMS as required.
+
+LIVE STATUS
+A static knowledge base cannot check current PNR or live train status. Direct the user to official IRCTC/Railway services. Avoid asking the user to post a full PNR publicly.

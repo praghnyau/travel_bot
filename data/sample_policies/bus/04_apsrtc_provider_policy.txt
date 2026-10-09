@@ -1,0 +1,26 @@
+APSRTC — PROVIDER-SPECIFIC KNOWLEDGE
+
+OFFICIAL PORTAL
+https://www.apsrtconline.in/
+Official terms: https://www.apsrtconline.in/oprs-web/home/terms.do
+
+BOOKING
+1. Use the official APSRTC portal/app or authorized channel.
+2. Enter origin, destination and travel date.
+3. Compare available services and select a service/seat if available.
+4. Enter passenger/contact details.
+5. Review fare, fees, boarding/drop points and cancellation terms.
+6. Pay and wait for confirmation; save ticket and SMS.
+
+CANCELLATION
+APSRTC terms publish cancellation slabs based on time before the scheduled service start at origin and distinguish basic fare from reservation/service/other charges. The exact table may change. Open the current official terms page before quoting percentages or cutoffs.
+General flow: open official booking/cancellation section; retrieve ticket; review current refund details; confirm; save reference; track refund.
+
+LINKED OR MULTI-SEGMENT TICKETS
+Special restrictions may apply to linked tickets and individual segments. Do not assume every segment can be independently cancelled.
+
+BOARDING AND DOCUMENTS
+Follow the actual ticket for accepted ticket format, ID requirements, pickup point and reporting time.
+
+CHATBOT RULE
+For questions about exact APSRTC cancellation charges, do not return an old memorized table. Explain that charges depend on the current official slab and direct the user to the terms page. The user may paste the relevant public policy text for explanation without sharing private booking information.

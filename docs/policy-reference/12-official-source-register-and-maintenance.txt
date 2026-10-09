@@ -1,0 +1,33 @@
+OFFICIAL SOURCE REGISTER AND MAINTENANCE
+
+Prepared: 9 October 2026. Re-check sources before using any numeric or deadline-specific rule.
+
+INDIAN RAILWAYS / IRCTC
+1. E-ticket FAQ: https://contents.irctc.co.in/en/etktfaq.html
+2. E-ticket cancellation: https://contents.irctc.co.in/en/eticketCancel.html
+3. Book e-ticket: https://contents.irctc.co.in/en/bookEticket.html
+4. Indian Railways: https://indianrailways.gov.in/
+
+BUS
+5. redBus cancellation: https://www.redbus.in/cancellation
+6. redBus FAQ: https://www.redbus.in/home
+7. redBus terms: https://www.redbus.in/ta/info/termscondition
+8. APSRTC official portal: https://www.apsrtconline.in/
+9. APSRTC terms: https://www.apsrtconline.in/oprs-web/home/terms.do
+
+AIR
+10. Ministry of Civil Aviation Passenger Charter: https://www.civilaviation.gov.in/ministry-documents/passenger-charter-of-rights
+11. DGCA: https://www.dgca.gov.in/
+12. IATA supplementary travel information: https://www.iatatravelcentre.com/
+13. Always add the actual operating airline's official baggage, check-in, cancellation/refund and special-assistance pages.
+
+INTERNATIONAL ENTRY
+Use the destination/transit country's official immigration or embassy website. India Ministry of External Affairs: https://www.mea.gov.in/
+
+MAINTENANCE
+- Re-check dynamic cancellation, baggage, ID, check-in and disruption policies monthly or after a reported discrepancy.
+- Record URL, date checked, summary of change and reviewer.
+- Keep general procedures separate from provider-specific numeric facts.
+- If an official page is unavailable, mark the rule “not verified”; do not guess.
+- For a particular booking, prioritize the ticket terms and current official provider page.
+- This starter set covers bus, Indian Railways and airline travel, including selected India-focused providers. It does not cover every operator worldwide, ferry, metro, taxi, cruise or travel insurance. Add separate sources/files before claiming those are covered.
