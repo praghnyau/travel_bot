@@ -116,8 +116,6 @@ def render_sources(sources: list[str]) -> str:
         if source.startswith(("https://", "http://")):
             parsed = urlparse(source)
             label = parsed.netloc.removeprefix("www.")
-            if parsed.path and parsed.path != "/":
-                label += f"/{Path(parsed.path).name}"
             links.append(f"[{label}]({source})")
         else:
             links.append(f"`{source}`")
@@ -179,6 +177,13 @@ st.markdown(
     [data-testid="stExpander"] { border-color: #DDEBF5; border-radius: 16px; background: rgba(255,255,255,.68); }
     .section-kicker { margin: .25rem 0 .2rem; color: #0369A1 !important; font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .11em; }
     .helper-copy { color: #475569 !important; margin-top: -.3rem; }
+    .context-strip { display:flex; flex-wrap:wrap; gap:.55rem; margin:-.15rem 0 1.4rem; }
+    .context-chip { display:inline-flex; align-items:center; gap:.4rem; border:1px solid #D7EAF6; border-radius:999px; padding:.42rem .75rem; background:rgba(255,255,255,.82); color:#334155; font-size:.82rem; font-weight:600; }
+    .welcome-title { margin:1.4rem 0 .2rem; color:#0F172A; font-size:1.12rem; font-weight:750; }
+    .welcome-copy { margin:0 0 .8rem; color:#64748B; font-size:.91rem; }
+    .stButton > button[kind="secondary"] { text-align:left; }
+    [data-testid="stChatMessage"] a { color:#0369A1 !important; font-weight:650; text-decoration-thickness:1px; text-underline-offset:3px; }
+    [data-testid="stStatus"] { border-radius:14px; }
     [data-theme="dark"] .stApp, [data-theme="dark"] [data-testid="stAppViewContainer"] { background: linear-gradient(145deg,#0F172A 0%,#111E32 58%,#10243A 100%) !important; color: #E2E8F0 !important; }
     [data-theme="dark"] [data-testid="stHeader"] { background: rgba(15,23,42,.96); }
     [data-theme="dark"] [data-testid="stSidebar"] { background: linear-gradient(180deg,#101B30 0%,#0F172A 78%) !important; border-color: #2A3B53; }
@@ -192,6 +197,9 @@ st.markdown(
     [data-theme="dark"] [data-testid="stMarkdownContainer"] h3 { color: #F8FAFC !important; }
     [data-theme="dark"] [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p,
     [data-theme="dark"] .helper-copy { color: #B6C5D8 !important; }
+    [data-theme="dark"] .context-chip { background:#17243A; border-color:#2A4863; color:#D7E5F3; }
+    [data-theme="dark"] .welcome-title { color:#F8FAFC; }
+    [data-theme="dark"] .welcome-copy { color:#B6C5D8; }
     [data-theme="dark"] .hero { border-color: #2A4863; background: linear-gradient(118deg,#17243A,#113148); }
     [data-theme="dark"] .hero h1 { color: #F8FAFC !important; }
     [data-theme="dark"] .hero p { color: #D0DEEE !important; }
@@ -282,7 +290,7 @@ with st.sidebar:
         policy_revision(str(POLICY_DIR)),
     )
     st.markdown("#### Policy library")
-    scoped_count = 0 if mode_key == "airways" else chunk_count
+    scoped_count = sum(getattr(chunk, "mode", None) == mode_key for chunk in bot.retriever.chunks)
     if provider_key:
         scoped_count = sum(getattr(chunk, "provider", None) == provider_key for chunk in bot.retriever.chunks)
     scope_label = provider_label if provider_key else mode_label.lower()
@@ -319,6 +327,17 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+library_label = provider_label if provider_key else mode_label
+mode_icon = {"airways": "✈️", "bus": "🚌", "railways": "🚆"}[mode_key]
+st.markdown(
+    '<div class="context-strip">'
+    f'<span class="context-chip">{mode_icon} {library_label}</span>'
+    f'<span class="context-chip">📚 {scoped_count:,} policy passages</span>'
+    '<span class="context-chip">🔒 Answers stay within this policy library</span>'
+    '</div>',
+    unsafe_allow_html=True,
+)
+
 if mode_key in {"airways", "bus"} and not provider_key:
     choices = "SpiceJet, IndiGo, or Air India" if mode_key == "airways" else "redBus, AbhiBus, MakeMyTrip, or APSRTC Official Portal"
     label = "airline-specific" if mode_key == "airways" else "platform-specific"
@@ -327,15 +346,41 @@ elif not chunk_count:
     st.info("The policy library is empty. Add approved policy documents to continue.", icon=":material/library_books:")
 else:
     questions = QUICK_QUESTIONS.get(nav_item, QUICK_QUESTIONS["FAQs"])
+    quick_prompt = None
+    suggested_prompt = None
     if not st.session_state.messages:
-        st.markdown('<div class="section-kicker">Quick actions</div>', unsafe_allow_html=True)
-        st.markdown('<div class="helper-copy">Choose a topic or ask in your own words.</div>', unsafe_allow_html=True)
-        quick_prompt = None
-        cols = st.columns(min(2, len(questions)))
+        st.markdown('<div class="section-kicker">Your trip, one clear answer at a time</div>', unsafe_allow_html=True)
+        st.markdown('<div class="welcome-title">What would you like help with?</div>', unsafe_allow_html=True)
+        st.markdown('<div class="welcome-copy">Pick a starting point. You can ask follow-up questions in your own words.</div>', unsafe_allow_html=True)
+        cols = st.columns(min(2, len(questions)), gap="medium")
+        action_descriptions = {
+            "Booking steps": "From search to a confirmed ticket",
+            "Cancellation": "How to request a cancellation",
+            "Cancellation process": "Review the provider’s cancellation steps",
+            "Travel documents": "What to prepare before departure",
+            "Common policies": "Key rules in this policy library",
+            "Before departure": "Checks to make before you travel",
+            "Cancel a booking": "Understand the cancellation route",
+            "Refund process": "Where to check refund information",
+            "Cancellation and refunds": "Cancellation and refund guidance",
+        }
         for index, (label, question) in enumerate(questions):
             with cols[index % len(cols)]:
-                if st.button(label, key=f"quick_{nav_item}_{index}", icon=":material/arrow_forward:", use_container_width=True):
+                st.markdown(
+                    f'<div class="welcome-title" style="font-size:.95rem;margin:.2rem 0">{label}</div>'
+                    f'<div class="welcome-copy" style="min-height:2.2rem">{action_descriptions.get(label, "Get clear, provider-specific guidance")}</div>',
+                    unsafe_allow_html=True,
+                )
+                if st.button("Explore", key=f"quick_{nav_item}_{index}", icon=":material/arrow_forward:", use_container_width=True):
                     quick_prompt = question
+    else:
+        with st.expander("Explore another topic", icon=":material/explore:"):
+            st.caption("Choose a suggested question, or type your own below.")
+            followup_cols = st.columns(min(2, len(questions)))
+            for index, (label, question) in enumerate(questions):
+                with followup_cols[index % len(followup_cols)]:
+                    if st.button(label, key=f"followup_{nav_item}_{index}", use_container_width=True):
+                        suggested_prompt = question
 
     for message in st.session_state.messages:
         render_message(message)
@@ -344,7 +389,7 @@ else:
         f"Ask about {(provider_label or mode_label).lower()} {nav_item.lower()}…",
         max_chars=1200,
     )
-    prompt = typed_prompt or (quick_prompt if not st.session_state.messages else None)
+    prompt = typed_prompt or quick_prompt or suggested_prompt
 
     if prompt:
         user_message = {"role": "user", "content": prompt, "mode": mode_key}
