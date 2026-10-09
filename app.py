@@ -1,5 +1,6 @@
 """Streamlit front end for the TripWise AI travel policy assistant."""
 from pathlib import Path
+import base64
 import hashlib
 import importlib
 from urllib.parse import urlparse
@@ -122,6 +123,48 @@ def render_sources(sources: list[str]) -> str:
     return "**Sources:** " + " · ".join(links)
 
 
+def render_mode_art(mode: str) -> None:
+    """Render a bundled, mode-specific landscape illustration without remote assets."""
+    asset_name = {"airways": "airways.svg", "railways": "train.svg", "bus": "bus.svg"}.get(mode)
+    if not asset_name:
+        return
+    asset = Path(__file__).parent / "assets" / "travel_modes" / asset_name
+    if not asset.is_file():
+        return
+    st.image(asset.read_text(encoding="utf-8"), width="stretch")
+
+
+def apply_mode_background(mode: str) -> None:
+    """Set a gentle scene behind the app while preserving foreground contrast."""
+    asset_name = {"airways": "airways.svg", "railways": "train.svg", "bus": "bus.svg"}.get(mode)
+    if not asset_name:
+        return
+    asset = Path(__file__).parent / "assets" / "travel_modes" / asset_name
+    if not asset.is_file():
+        return
+    artwork = base64.b64encode(asset.read_bytes()).decode("ascii")
+    veil = {
+        "airways": "rgba(240, 249, 255, .78), rgba(248, 250, 252, .84)",
+        "railways": "rgba(240, 253, 244, .80), rgba(248, 250, 252, .86)",
+        "bus": "rgba(236, 253, 245, .80), rgba(248, 250, 252, .86)",
+    }[mode]
+    st.markdown(
+        f"""<style>
+        .stApp, [data-testid="stAppViewContainer"] {{
+          background-image: linear-gradient(145deg, {veil}), url("data:image/svg+xml;base64,{artwork}") !important;
+          background-size: cover, cover !important;
+          background-position: center, center !important;
+          background-repeat: no-repeat, no-repeat !important;
+          background-attachment: fixed, fixed !important;
+        }}
+        [data-theme="dark"] .stApp, [data-theme="dark"] [data-testid="stAppViewContainer"] {{
+          background-image: linear-gradient(145deg, rgba(15, 23, 42, .91), rgba(15, 23, 42, .88)), url("data:image/svg+xml;base64,{artwork}") !important;
+        }}
+        </style>""",
+        unsafe_allow_html=True,
+    )
+
+
 st.set_page_config(
     page_title="TripWise AI | Travel policy guide",
     page_icon=":material/travel_explore:",
@@ -151,6 +194,8 @@ st.markdown(
     .hero h1 { color: #0F172A !important; margin: .45rem 0 .35rem; font-size: clamp(2rem,4vw,3.15rem); line-height: 1.08; }
     .hero p { max-width: 650px; margin: 0; color: #334155 !important; font-size: 1.06rem; }
     .trust-pill { display: inline-block; margin-top: 1.15rem; padding: .42rem .75rem; border: 1px solid #BAE6FD; border-radius: 99px; background: #FFFFFF; color: #075985 !important; font-size: .82rem; font-weight: 600; }
+    [data-testid="stImage"] { height: clamp(125px, 19vw, 210px); overflow: hidden; margin: 0 0 1.2rem; border: 1px solid rgba(186,230,253,.9); border-radius: 23px; background: #EAF7FF; box-shadow: 0 10px 26px rgba(15,23,42,.07); }
+    [data-testid="stImage"] img { display:block; width:100%; height:100%; object-fit:cover; object-position:center 56%; }
     [data-testid="stChatMessage"] { border: 1px solid #D7EAF6; border-radius: 20px; padding: .8rem 1rem; margin: .7rem 0; background: #FFFFFF; box-shadow: 0 7px 24px rgba(15,23,42,.055); color: #0F172A !important; }
     [data-testid="stChatMessage"] [data-testid="stMarkdownContainer"], [data-testid="stChatMessage"] p,
     [data-testid="stChatMessage"] li { color: #0F172A !important; }
@@ -204,6 +249,7 @@ st.markdown(
     [data-theme="dark"] .hero h1 { color: #F8FAFC !important; }
     [data-theme="dark"] .hero p { color: #D0DEEE !important; }
     [data-theme="dark"] .trust-pill { background: #17243A; border-color: #2A6487; color: #BAE6FD !important; }
+    [data-theme="dark"] [data-testid="stImage"] { border-color:#2A4863; box-shadow:0 10px 28px rgba(0,0,0,.22); }
     [data-theme="dark"] [data-testid="stChatMessage"] { border-color: #2A3B53; background: #17243A; }
     [data-theme="dark"] [data-testid="stChatMessage"] [data-testid="stMarkdownContainer"],
     [data-theme="dark"] [data-testid="stChatMessage"] p,
@@ -281,8 +327,7 @@ with st.sidebar:
         st.session_state.messages = []
         st.session_state.active_policy_scope = active_scope
 
-    st.markdown("#### Topics")
-    nav_item = st.selectbox("Choose a topic", TOPIC_ITEMS, key="topic_navigation", label_visibility="collapsed")
+    nav_item = "Ask anything"
 
     st.divider()
     bot, chunk_count = build_chatbot(
@@ -305,6 +350,8 @@ with st.sidebar:
             "It does not book, cancel, or check live ticket and refund status."
         )
 
+apply_mode_background(mode_key)
+
 hero_title = {
     "Ask anything": "Travel, made clearer.",
     "Booking Process": "Plan each step with confidence.",
@@ -326,6 +373,7 @@ st.markdown(
     '<span class="trust-pill">✦&nbsp; Provider-scoped guidance &nbsp;·&nbsp; Clear steps &nbsp;·&nbsp; Sources below</span></section>',
     unsafe_allow_html=True,
 )
+render_mode_art(mode_key)
 
 library_label = provider_label if provider_key else mode_label
 mode_icon = {"airways": "✈️", "bus": "🚌", "railways": "🚆"}[mode_key]
@@ -374,13 +422,13 @@ else:
                 if st.button("Explore", key=f"quick_{nav_item}_{index}", icon=":material/arrow_forward:", use_container_width=True):
                     quick_prompt = question
     else:
-        with st.expander("Explore another topic", icon=":material/explore:"):
-            st.caption("Choose a suggested question, or type your own below.")
-            followup_cols = st.columns(min(2, len(questions)))
-            for index, (label, question) in enumerate(questions):
-                with followup_cols[index % len(followup_cols)]:
-                    if st.button(label, key=f"followup_{nav_item}_{index}", use_container_width=True):
-                        suggested_prompt = question
+        st.markdown('<div class="section-kicker">Quick actions</div>', unsafe_allow_html=True)
+        st.markdown('<div class="helper-copy">Ask another question from this policy library.</div>', unsafe_allow_html=True)
+        followup_cols = st.columns(min(2, len(questions)))
+        for index, (label, question) in enumerate(questions):
+            with followup_cols[index % len(followup_cols)]:
+                if st.button(label, key=f"followup_{nav_item}_{index}", icon=":material/arrow_forward:", use_container_width=True):
+                    suggested_prompt = question
 
     for message in st.session_state.messages:
         render_message(message)
@@ -414,6 +462,18 @@ else:
                 "mode": mode_key,
                 "provider_label": provider_label,
             }
+        )
+        st.html(
+            """
+            <script>
+            requestAnimationFrame(() => setTimeout(() => {
+              const messages = document.querySelectorAll('[data-testid="stChatMessage"]');
+              const latestAnswer = messages[messages.length - 1];
+              if (latestAnswer) latestAnswer.scrollIntoView({behavior: 'smooth', block: 'end'});
+            }, 80));
+            </script>
+            """,
+            unsafe_allow_javascript=True,
         )
 
 st.markdown(
